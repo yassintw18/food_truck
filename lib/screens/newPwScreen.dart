@@ -19,7 +19,7 @@ class NewPwScreen extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                Text("New Password", style: Helper.getTheme(context).headline6),
+                Text("New Password", style: Helper.getTheme(context).titleLarge),
                 SizedBox(
                   height: 20,
                 ),

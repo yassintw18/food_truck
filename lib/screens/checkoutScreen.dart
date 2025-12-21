@@ -30,7 +30,7 @@ class CheckoutScreen extends StatelessWidget {
                     Expanded(
                       child: Text(
                         "Checkout",
-                        style: Helper.getTheme(context).headline5,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                     ),
                   ],
@@ -54,7 +54,7 @@ class CheckoutScreen extends StatelessWidget {
                         width: Helper.getScreenWidth(context) * 0.4,
                         child: Text(
                           "653 Nostrand Ave., Brooklyn, NY 11216",
-                          style: Helper.getTheme(context).headline3,
+                          style: Theme.of(context).textTheme.displaySmall,
                         ),
                       ),
                       TextButton(
@@ -124,8 +124,9 @@ class CheckoutScreen extends StatelessWidget {
                                           children: [
                                             Text(
                                               "Add Credit/Debit Card",
-                                              style: Helper.getTheme(context)
-                                                  .headline3,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .displaySmall,
                                             )
                                           ],
                                         ),
@@ -135,7 +136,7 @@ class CheckoutScreen extends StatelessWidget {
                                             horizontal: 20.0),
                                         child: Divider(
                                           color: AppColor.placeholder
-                                              .withOpacity(0.5),
+                                              .withAlpha(128),
                                           thickness: 1.5,
                                           height: 40,
                                         ),
@@ -224,7 +225,7 @@ class CheckoutScreen extends StatelessWidget {
                                               value: false,
                                               onChanged: (_) {},
                                               thumbColor:
-                                                  MaterialStateProperty.all(
+                                                  WidgetStateProperty.all(
                                                 AppColor.secondary,
                                               ),
                                             )
@@ -388,7 +389,7 @@ class CheckoutScreen extends StatelessWidget {
                           Text("Sub Total"),
                           Text(
                             "\$68",
-                            style: Helper.getTheme(context).headline3,
+                            style: Theme.of(context).textTheme.displaySmall,
                           )
                         ],
                       ),
@@ -401,7 +402,7 @@ class CheckoutScreen extends StatelessWidget {
                           Text("Delivery Cost"),
                           Text(
                             "\$2",
-                            style: Helper.getTheme(context).headline3,
+                            style: Theme.of(context).textTheme.displaySmall,
                           )
                         ],
                       ),
@@ -414,13 +415,13 @@ class CheckoutScreen extends StatelessWidget {
                           Text("Discount"),
                           Text(
                             "-\$4",
-                            style: Helper.getTheme(context).headline3,
+                            style: Theme.of(context).textTheme.displaySmall,
                           )
                         ],
                       ),
                       Divider(
                         height: 40,
-                        color: AppColor.placeholder.withOpacity(0.25),
+                        color: AppColor.placeholder.withAlpha(64),
                         thickness: 2,
                       ),
                       Row(
@@ -429,7 +430,7 @@ class CheckoutScreen extends StatelessWidget {
                           Text("Total"),
                           Text(
                             "\$66",
-                            style: Helper.getTheme(context).headline3,
+                            style: Theme.of(context).textTheme.displaySmall,
                           )
                         ],
                       ),
@@ -499,9 +500,10 @@ class CheckoutScreen extends StatelessWidget {
                                     ),
                                     Text(
                                       "for your order",
-                                      style: Helper.getTheme(context)
-                                          .headline4
-                                          .copyWith(color: AppColor.primary),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headlineMedium
+                                          ?.copyWith(color: AppColor.primary),
                                     ),
                                     SizedBox(
                                       height: 20,
@@ -572,12 +574,12 @@ class CheckoutScreen extends StatelessWidget {
 
 class PaymentCard extends StatelessWidget {
   const PaymentCard({
-    Key key,
-    Widget widget,
+    Key? key,
+    Widget? widget,
   })  : _widget = widget,
         super(key: key);
 
-  final Widget _widget;
+  final Widget? _widget;
 
   @override
   Widget build(BuildContext context) {
@@ -594,7 +596,7 @@ class PaymentCard extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
               side: BorderSide(
-                color: AppColor.placeholder.withOpacity(0.25),
+                color: AppColor.placeholder.withAlpha(64),
               ),
             ),
             color: AppColor.placeholderBg,

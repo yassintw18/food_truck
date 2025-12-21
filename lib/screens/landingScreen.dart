@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:clip_shadow/clip_shadow.dart';
 import 'package:monkey_app_demo/screens/loginScreen.dart';
 
 import '../const/colors.dart';
@@ -17,27 +16,31 @@ class LandingScreen extends StatelessWidget {
         children: [
           Align(
             alignment: Alignment.topCenter,
-            child: ClipShadow(
-              clipper: CustomClipperAppBar(),
-              boxShadow: [
-                BoxShadow(
-                  color: AppColor.placeholder,
-                  offset: Offset(0, 15),
-                  blurRadius: 10,
-                ),
-              ],
-              child: Container(
-                width: double.infinity,
-                height: Helper.getScreenHeight(context) * 0.5,
-                decoration: ShapeDecoration(
-                  color: AppColor.orange,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+            child: Container(
+              decoration: const BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColor.placeholder,
+                    offset: Offset(0, 15),
+                    blurRadius: 10,
                   ),
-                ),
-                child: Image.asset(
-                  Helper.getAssetName("login_bg.png", "virtual"),
-                  fit: BoxFit.cover,
+                ],
+              ),
+              child: ClipPath(
+                clipper: CustomClipperAppBar(),
+                child: Container(
+                  width: double.infinity,
+                  height: Helper.getScreenHeight(context) * 0.5,
+                  decoration: ShapeDecoration(
+                    color: AppColor.orange,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  child: Image.asset(
+                    Helper.getAssetName("login_bg.png", "virtual"),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
@@ -85,13 +88,13 @@ class LandingScreen extends StatelessWidget {
                     child: ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.all(Colors.white),
+                            WidgetStateProperty.all(Colors.white),
                         foregroundColor:
-                            MaterialStateProperty.all(AppColor.orange),
-                        shape: MaterialStateProperty.all(
+                            WidgetStateProperty.all(AppColor.orange),
+                        shape: WidgetStateProperty.all(
                           StadiumBorder(
-                            side:
-                                BorderSide(color: AppColor.orange, width: 1.5),
+                            side: BorderSide(
+                                color: AppColor.orange, width: 1.5),
                           ),
                         ),
                       ),

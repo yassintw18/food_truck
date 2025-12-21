@@ -3,7 +3,7 @@ import 'package:monkey_app_demo/const/colors.dart';
 import 'package:monkey_app_demo/screens/dessertScreen.dart';
 import 'package:monkey_app_demo/utils/helper.dart';
 import 'package:monkey_app_demo/widgets/customNavBar.dart';
-import 'package:monkey_app_demo/widgets/searchBar.dart';
+import 'package:monkey_app_demo/widgets/searchBar.dart' as CustomSearchBar;
 
 class MenuScreen extends StatelessWidget {
   static const routeName = "/menuScreen";
@@ -24,7 +24,7 @@ class MenuScreen extends StatelessWidget {
                     children: [
                       Text(
                         "Menu",
-                        style: Helper.getTheme(context).headline5,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                       Image.asset(
                         Helper.getAssetName("cart.png", "virtual"),
@@ -35,7 +35,7 @@ class MenuScreen extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                SearchBar(title: "Search Food"),
+                CustomSearchBar.SearchBar(title: "Search Food"),
                 SizedBox(
                   height: 20,
                 ),
@@ -162,10 +162,10 @@ class MenuScreen extends StatelessWidget {
 
 class MenuCard extends StatelessWidget {
   const MenuCard({
-    Key key,
-    @required String name,
-    @required String count,
-    @required Widget imageShape,
+    Key? key,
+    required String name,
+    required String count,
+    required Widget imageShape,
   })  : _name = name,
         _count = count,
         _imageShape = imageShape,
@@ -210,7 +210,7 @@ class MenuCard extends StatelessWidget {
             children: [
               Text(
                 _name,
-                style: Helper.getTheme(context).headline4.copyWith(
+                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                       color: AppColor.primary,
                     ),
               ),

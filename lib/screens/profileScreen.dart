@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:monkey_app_demo/const/colors.dart';
 import 'package:monkey_app_demo/utils/helper.dart';
 import 'package:monkey_app_demo/widgets/customNavBar.dart';
-import 'package:monkey_app_demo/widgets/customTextInput.dart';
 
 class ProfileScreen extends StatelessWidget {
   static const routeName = "/profileScreen";
@@ -25,7 +24,7 @@ class ProfileScreen extends StatelessWidget {
                         children: [
                           Text(
                             "Profile",
-                            style: Helper.getTheme(context).headline5,
+                            style: Theme.of(context).textTheme.headlineSmall,
                           ),
                           Image.asset(
                             Helper.getAssetName("cart.png", "virtual"),
@@ -54,7 +53,7 @@ class ProfileScreen extends StatelessWidget {
                               child: Container(
                                 height: 20,
                                 width: 80,
-                                color: Colors.black.withOpacity(0.3),
+                                color: Colors.black.withAlpha(77),
                                 child: Image.asset(Helper.getAssetName(
                                     "camera.png", "virtual")),
                               ),
@@ -85,7 +84,7 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       Text(
                         "Hi there Emilia!",
-                        style: Helper.getTheme(context).headline4.copyWith(
+                        style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                               color: AppColor.primary,
                             ),
                       ),
@@ -169,17 +168,17 @@ class ProfileScreen extends StatelessWidget {
 
 class CustomFormImput extends StatelessWidget {
   const CustomFormImput({
-    Key key,
-    String label,
-    String value,
+    Key? key,
+    String? label,
+    String? value,
     bool isPassword = false,
   })  : _label = label,
         _value = value,
         _isPassword = isPassword,
         super(key: key);
 
-  final String _label;
-  final String _value;
+  final String? _label;
+  final String? _value;
   final bool _isPassword;
 
   @override

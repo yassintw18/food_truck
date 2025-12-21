@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:monkey_app_demo/screens/changeAddressScreen.dart';
+import 'package:monkey_app_demo/test_print_page.dart';
 
-import './screens/spashScreen.dart';
 import './screens/landingScreen.dart';
 import './screens/loginScreen.dart';
 import './screens/signUpScreen.dart';
@@ -23,13 +23,19 @@ import './screens/inboxScreen.dart';
 import './screens/myOrderScreen.dart';
 import './screens/checkoutScreen.dart';
 import './const/colors.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Supabase.initialize(
+    url: 'https://uigrnpcnzqhgjyfmloof.supabase.co',
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVpZ3JucGNuenFoZ2p5Zm1sb29mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUxMTE2NTEsImV4cCI6MjA4MDY4NzY1MX0.FFow29P3YQiXiauCQYR_2XYLAKKMoaJ6mZl32Vi-s2U',
+  );
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -39,48 +45,48 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(
+            backgroundColor: WidgetStateProperty.all(
               AppColor.orange,
             ),
-            shape: MaterialStateProperty.all(
+            shape: WidgetStateProperty.all(
               StadiumBorder(),
             ),
-            elevation: MaterialStateProperty.all(0),
+            elevation: WidgetStateProperty.all(0),
           ),
         ),
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.all(
+            foregroundColor: WidgetStateProperty.all(
               AppColor.orange,
             ),
           ),
         ),
         textTheme: TextTheme(
-          headline3: TextStyle(
+          displaySmall: TextStyle(
             color: AppColor.primary,
             fontSize: 16,
             fontWeight: FontWeight.bold,
           ),
-          headline4: TextStyle(
+          headlineMedium: TextStyle(
             color: AppColor.secondary,
             fontWeight: FontWeight.bold,
             fontSize: 20,
           ),
-          headline5: TextStyle(
+          headlineSmall: TextStyle(
             color: AppColor.primary,
             fontWeight: FontWeight.normal,
             fontSize: 25,
           ),
-          headline6: TextStyle(
+          titleLarge: TextStyle(
             color: AppColor.primary,
             fontSize: 25,
           ),
-          bodyText2: TextStyle(
+          bodyMedium: TextStyle(
             color: AppColor.secondary,
           ),
         ),
       ),
-      home: SplashScreen(),
+      home: TestPrintPage(),
       routes: {
         LandingScreen.routeName: (context) => LandingScreen(),
         LoginScreen.routeName: (context) => LoginScreen(),

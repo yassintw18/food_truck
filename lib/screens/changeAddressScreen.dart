@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:monkey_app_demo/const/colors.dart';
 import 'package:monkey_app_demo/utils/helper.dart';
 import 'package:monkey_app_demo/widgets/customNavBar.dart';
-import 'package:monkey_app_demo/widgets/searchBar.dart';
+import 'package:monkey_app_demo/widgets/searchBar.dart' as CustomSearchBar;
 
 class ChangeAddressScreen extends StatelessWidget {
   static const routeName = "/changeAddressScreen";
@@ -26,7 +26,7 @@ class ChangeAddressScreen extends StatelessWidget {
                     ),
                     Text(
                       "Change Address",
-                      style: Helper.getTheme(context).headline5,
+                      style: Theme.of(context).textTheme.headlineSmall,
                     )
                   ],
                 ),
@@ -124,7 +124,7 @@ class ChangeAddressScreen extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                SearchBar(title: "Search Address"),
+                CustomSearchBar.SearchBar(title: "Search Address"),
                 SizedBox(
                   height: 10,
                 ),
@@ -137,7 +137,7 @@ class ChangeAddressScreen extends StatelessWidget {
                         width: 50,
                         decoration: ShapeDecoration(
                           shape: CircleBorder(),
-                          color: AppColor.orange.withOpacity(0.2),
+                          color: AppColor.orange.withAlpha(51),
                         ),
                         child: Icon(
                           Icons.star_rounded,

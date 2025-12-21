@@ -19,7 +19,7 @@ class SignUpScreen extends StatelessWidget {
             children: [
               Text(
                 "Sign Up",
-                style: Helper.getTheme(context).headline6,
+                style: Helper.getTheme(context).titleLarge,
               ),
               Spacer(),
               Text(

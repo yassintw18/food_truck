@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:monkey_app_demo/const/colors.dart';
 import 'package:monkey_app_demo/utils/helper.dart';
 import 'package:monkey_app_demo/widgets/customNavBar.dart';
-import 'package:monkey_app_demo/widgets/searchBar.dart';
+import 'package:monkey_app_demo/widgets/searchBar.dart' as CustomSearchBar;
 
 class DessertScreen extends StatelessWidget {
   static const routeName = '/dessertScreen';
@@ -36,7 +36,7 @@ class DessertScreen extends StatelessWidget {
                             children: [
                               Text(
                                 "Desserts",
-                                style: Helper.getTheme(context).headline5,
+                                style: Theme.of(context).textTheme.headlineSmall,
                               ),
                             ],
                           ),
@@ -50,7 +50,7 @@ class DessertScreen extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  SearchBar(
+                  CustomSearchBar.SearchBar(
                     title: "Search Food",
                   ),
                   SizedBox(
@@ -123,11 +123,11 @@ class DessertScreen extends StatelessWidget {
 
 class DessertCard extends StatelessWidget {
   const DessertCard({
-    Key key,
-    @required String name,
-    @required String rating,
-    @required String shop,
-    @required Image image,
+    Key? key,
+    required String name,
+    required String rating,
+    required String shop,
+    required Image image,
   })  : _name = name,
         _rating = rating,
         _shop = shop,
@@ -158,8 +158,8 @@ class DessertCard extends StatelessWidget {
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
                 colors: [
-                  Colors.black.withOpacity(0.7),
-                  Colors.black.withOpacity(0.2),
+                  Colors.black.withAlpha(179),
+                  Colors.black.withAlpha(51),
                 ],
               ),
             ),
@@ -175,7 +175,7 @@ class DessertCard extends StatelessWidget {
                 children: [
                   Text(
                     _name,
-                    style: Helper.getTheme(context).headline4.copyWith(
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                           color: Colors.white,
                         ),
                   ),

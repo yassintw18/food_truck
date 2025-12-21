@@ -28,7 +28,7 @@ class NotificationScreen extends StatelessWidget {
                     Expanded(
                       child: Text(
                         "Notifications",
-                        style: Helper.getTheme(context).headline5,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                     ),
                     Image.asset(
@@ -91,17 +91,17 @@ class NotificationScreen extends StatelessWidget {
 
 class NotiCard extends StatelessWidget {
   const NotiCard({
-    Key key,
-    String time,
-    String title,
+    Key? key,
+    String? time,
+    String? title,
     Color color = Colors.white,
   })  : _time = time,
         _title = title,
         _color = color,
         super(key: key);
 
-  final String _time;
-  final String _title;
+  final String? _time;
+  final String? _title;
   final Color _color;
 
   @override
@@ -134,12 +134,12 @@ class NotiCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                _title,
+                _title!,
                 style: TextStyle(
                   color: AppColor.primary,
                 ),
               ),
-              Text(_time),
+              Text(_time!),
             ],
           )
         ],

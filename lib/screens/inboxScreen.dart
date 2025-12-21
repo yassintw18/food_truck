@@ -26,7 +26,7 @@ class InboxScreen extends StatelessWidget {
                       Expanded(
                         child: Text(
                           "Inbox",
-                          style: Helper.getTheme(context).headline5,
+                          style: Theme.of(context).textTheme.headlineSmall,
                         ),
                       ),
                       Image.asset(
@@ -94,10 +94,10 @@ class InboxScreen extends StatelessWidget {
 
 class MailCard extends StatelessWidget {
   const MailCard({
-    Key key,
-    String time,
-    String title,
-    String description,
+    Key? key,
+    String? time,
+    String? title,
+    String? description,
     Color color = Colors.white,
   })  : _time = time,
         _title = title,
@@ -105,9 +105,9 @@ class MailCard extends StatelessWidget {
         _color = color,
         super(key: key);
 
-  final String _time;
-  final String _title;
-  final String _description;
+  final String? _time;
+  final String? _title;
+  final String? _description;
   final Color _color;
 
   @override
@@ -140,13 +140,13 @@ class MailCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  _title,
+                  _title!,
                   style: TextStyle(
                     color: AppColor.primary,
                   ),
                 ),
                 SizedBox(height: 5),
-                Text(_description),
+                Text(_description!),
               ],
             ),
           ),
@@ -154,7 +154,7 @@ class MailCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                _time,
+                _time!,
                 style: TextStyle(
                   fontSize: 10,
                 ),

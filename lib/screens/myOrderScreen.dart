@@ -27,7 +27,7 @@ class MyOrderScreen extends StatelessWidget {
                     Expanded(
                       child: Text(
                         "My Order",
-                        style: Helper.getTheme(context).headline5,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                     )
                   ],
@@ -63,7 +63,7 @@ class MyOrderScreen extends StatelessWidget {
                           children: [
                             Text(
                               "King Burgers",
-                              style: Helper.getTheme(context).headline3,
+                              style: Theme.of(context).textTheme.displaySmall,
                             ),
                             Row(
                               children: [
@@ -170,7 +170,7 @@ class MyOrderScreen extends StatelessWidget {
                         decoration: BoxDecoration(
                           border: Border(
                             bottom: BorderSide(
-                              color: AppColor.placeholder.withOpacity(0.25),
+                              color: AppColor.placeholder.withAlpha(64),
                             ),
                           ),
                         ),
@@ -179,7 +179,7 @@ class MyOrderScreen extends StatelessWidget {
                             Expanded(
                               child: Text(
                                 "Delivery Instruction",
-                                style: Helper.getTheme(context).headline3,
+                                style: Theme.of(context).textTheme.displaySmall,
                               ),
                             ),
                             TextButton(
@@ -209,12 +209,12 @@ class MyOrderScreen extends StatelessWidget {
                           Expanded(
                             child: Text(
                               "Sub Total",
-                              style: Helper.getTheme(context).headline3,
+                              style: Theme.of(context).textTheme.displaySmall,
                             ),
                           ),
                           Text(
                             "\$68",
-                            style: Helper.getTheme(context).headline3.copyWith(
+                            style: Theme.of(context).textTheme.displaySmall?.copyWith(
                                   color: AppColor.orange,
                                 ),
                           )
@@ -228,12 +228,12 @@ class MyOrderScreen extends StatelessWidget {
                           Expanded(
                             child: Text(
                               "Delivery Cost",
-                              style: Helper.getTheme(context).headline3,
+                              style: Theme.of(context).textTheme.displaySmall,
                             ),
                           ),
                           Text(
                             "\$2",
-                            style: Helper.getTheme(context).headline3.copyWith(
+                            style: Theme.of(context).textTheme.displaySmall?.copyWith(
                                   color: AppColor.orange,
                                 ),
                           )
@@ -243,7 +243,7 @@ class MyOrderScreen extends StatelessWidget {
                         height: 10,
                       ),
                       Divider(
-                        color: AppColor.placeholder.withOpacity(0.25),
+                        color: AppColor.placeholder.withAlpha(64),
                         thickness: 1.5,
                       ),
                       SizedBox(
@@ -254,12 +254,12 @@ class MyOrderScreen extends StatelessWidget {
                           Expanded(
                             child: Text(
                               "Total",
-                              style: Helper.getTheme(context).headline3,
+                              style: Theme.of(context).textTheme.displaySmall,
                             ),
                           ),
                           Text(
                             "\$70",
-                            style: Helper.getTheme(context).headline3.copyWith(
+                            style: Theme.of(context).textTheme.displaySmall?.copyWith(
                                   color: AppColor.orange,
                                   fontSize: 22,
                                 ),
@@ -297,17 +297,17 @@ class MyOrderScreen extends StatelessWidget {
 
 class BurgerCard extends StatelessWidget {
   const BurgerCard({
-    Key key,
-    String name,
-    String price,
+    Key? key,
+    String? name,
+    String? price,
     bool isLast = false,
   })  : _name = name,
         _price = price,
         _isLast = isLast,
         super(key: key);
 
-  final String _name;
-  final String _price;
+  final String? _name;
+  final String? _price;
   final bool _isLast;
   @override
   Widget build(BuildContext context) {
@@ -318,7 +318,7 @@ class BurgerCard extends StatelessWidget {
           bottom: _isLast
               ? BorderSide.none
               : BorderSide(
-                  color: AppColor.placeholder.withOpacity(0.25),
+                  color: AppColor.placeholder.withAlpha(64),
                 ),
         ),
       ),

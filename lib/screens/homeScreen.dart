@@ -4,7 +4,7 @@ import '../const/colors.dart';
 import '../utils/helper.dart';
 import '../widgets/customNavBar.dart';
 import '../screens/individualItem.dart';
-import '../widgets/searchBar.dart';
+import 'package:monkey_app_demo/widgets/searchBar.dart' as CustomSearchBar;
 
 class HomeScreen extends StatelessWidget {
   static const routeName = "/homeScreen";
@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Text(
                           "Good morning Akila!",
-                          style: Helper.getTheme(context).headline5,
+                          style: Theme.of(context).textTheme.headlineSmall,
                         ),
                         Image.asset(Helper.getAssetName("cart.png", "virtual"))
                       ],
@@ -64,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                             Helper.getAssetName(
                                 "dropdown_filled.png", "virtual"),
                           ),
-                          style: Helper.getTheme(context).headline4,
+                          style: Theme.of(context).textTheme.headlineMedium,
                           onChanged: (_) {},
                         ),
                       ),
@@ -73,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  SearchBar(
+                  CustomSearchBar.SearchBar(
                     title: "Search Food",
                   ),
                   SizedBox(
@@ -142,7 +142,7 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Text(
                           "Popular Restaurants",
-                          style: Helper.getTheme(context).headline5,
+                          style: Theme.of(context).textTheme.headlineSmall,
                         ),
                         TextButton(onPressed: () {}, child: Text("View all"))
                       ],
@@ -182,7 +182,7 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Text(
                           "Most Popular",
-                          style: Helper.getTheme(context).headline5,
+                          style: Theme.of(context).textTheme.headlineSmall,
                         ),
                         TextButton(
                           onPressed: () {},
@@ -233,7 +233,7 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Text(
                           "Recent Items",
-                          style: Helper.getTheme(context).headline5,
+                          style: Theme.of(context).textTheme.headlineSmall,
                         ),
                         TextButton(
                           onPressed: () {},
@@ -294,9 +294,9 @@ class HomeScreen extends StatelessWidget {
 
 class RecentItemCard extends StatelessWidget {
   const RecentItemCard({
-    Key key,
-    @required String name,
-    @required Image image,
+    Key? key,
+    required String name,
+    required Image image,
   })  : _name = name,
         _image = image,
         super(key: key);
@@ -328,9 +328,10 @@ class RecentItemCard extends StatelessWidget {
               children: [
                 Text(
                   _name,
-                  style: Helper.getTheme(context)
-                      .headline4
-                      .copyWith(color: AppColor.primary),
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineMedium
+                      ?.copyWith(color: AppColor.primary),
                 ),
                 Row(
                   children: [
@@ -386,9 +387,9 @@ class RecentItemCard extends StatelessWidget {
 
 class MostPopularCard extends StatelessWidget {
   const MostPopularCard({
-    Key key,
-    @required String name,
-    @required Image image,
+    Key? key,
+    required String name,
+    required Image image,
   })  : _name = name,
         _image = image,
         super(key: key);
@@ -412,9 +413,10 @@ class MostPopularCard extends StatelessWidget {
         SizedBox(height: 10),
         Text(
           _name,
-          style: Helper.getTheme(context)
-              .headline4
-              .copyWith(color: AppColor.primary),
+          style: Theme.of(context)
+              .textTheme
+              .headlineMedium
+              ?.copyWith(color: AppColor.primary),
         ),
         Row(
           children: [
@@ -460,9 +462,9 @@ class MostPopularCard extends StatelessWidget {
 
 class RestaurantCard extends StatelessWidget {
   const RestaurantCard({
-    Key key,
-    @required String name,
-    @required Image image,
+    Key? key,
+    required String name,
+    required Image image,
   })  : _image = image,
         _name = name,
         super(key: key);
@@ -491,7 +493,7 @@ class RestaurantCard extends StatelessWidget {
                   children: [
                     Text(
                       _name,
-                      style: Helper.getTheme(context).headline3,
+                      style: Theme.of(context).textTheme.displaySmall,
                     ),
                   ],
                 ),
@@ -550,9 +552,9 @@ class RestaurantCard extends StatelessWidget {
 
 class CategoryCard extends StatelessWidget {
   const CategoryCard({
-    Key key,
-    @required Image image,
-    @required String name,
+    Key? key,
+    required Image image,
+    required String name,
   })  : _image = image,
         _name = name,
         super(key: key);
@@ -577,9 +579,10 @@ class CategoryCard extends StatelessWidget {
         ),
         Text(
           _name,
-          style: Helper.getTheme(context)
-              .headline4
-              .copyWith(color: AppColor.primary, fontSize: 16),
+          style: Theme.of(context)
+              .textTheme
+              .headlineMedium
+              ?.copyWith(color: AppColor.primary, fontSize: 16),
         ),
       ],
     );

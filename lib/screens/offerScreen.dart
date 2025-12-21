@@ -24,7 +24,7 @@ class OfferScreen extends StatelessWidget {
                         children: [
                           Text(
                             "Latest Offers",
-                            style: Helper.getTheme(context).headline5,
+                            style: Helper.getTheme(context).headlineSmall,
                           ),
                           Image.asset(
                             Helper.getAssetName("cart.png", "virtual"),
@@ -104,15 +104,15 @@ class OfferScreen extends StatelessWidget {
 
 class OfferCard extends StatelessWidget {
   const OfferCard({
-    Key key,
-    String name,
-    Image image,
+    Key? key,
+    String? name,
+    Image? image,
   })  : _image = image,
         _name = name,
         super(key: key);
 
-  final String _name;
-  final Image _image;
+  final String? _name;
+  final Image? _image;
 
   @override
   Widget build(BuildContext context) {
@@ -130,10 +130,10 @@ class OfferCard extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  _name,
+                  _name ?? "",
                   style: Helper.getTheme(context)
-                      .headline4
-                      .copyWith(color: AppColor.primary),
+                      .headlineMedium
+                      ?.copyWith(color: AppColor.primary),
                 )
               ],
             ),

@@ -3,8 +3,8 @@ import 'package:monkey_app_demo/const/colors.dart';
 import 'package:monkey_app_demo/utils/helper.dart';
 
 class SearchBar extends StatelessWidget {
-  final String title;
-  SearchBar({@required this.title});
+  final String? title;
+  SearchBar({Key? key, this.title}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(

@@ -27,7 +27,7 @@ class MoreScreen extends StatelessWidget {
                     children: [
                       Text(
                         "More",
-                        style: Helper.getTheme(context).headline5,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                       Image.asset(
                         Helper.getAssetName("cart.png", "virtual"),
@@ -118,21 +118,21 @@ class MoreScreen extends StatelessWidget {
 
 class MoreCard extends StatelessWidget {
   const MoreCard({
-    Key key,
-    String name,
-    Image image,
+    Key? key,
+    String? name,
+    Image? image,
     bool isNoti = false,
-    Function handler,
+    VoidCallback? handler,
   })  : _name = name,
         _image = image,
         _isNoti = isNoti,
         _handler = handler,
         super(key: key);
 
-  final String _name;
-  final Image _image;
+  final String? _name;
+  final Image? _image;
   final bool _isNoti;
-  final Function _handler;
+  final VoidCallback? _handler;
 
   @override
   Widget build(BuildContext context) {
@@ -170,7 +170,7 @@ class MoreCard extends StatelessWidget {
                     width: 10,
                   ),
                   Text(
-                    _name,
+                    _name!,
                     style: TextStyle(
                       color: AppColor.primary,
                     ),

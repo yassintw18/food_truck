@@ -19,7 +19,7 @@ class SendOTPScreen extends StatelessWidget {
             ),
             Text(
               'We have sent you an OTP to your Mobile',
-              style: Helper.getTheme(context).headline6,
+              style: Helper.getTheme(context).titleLarge,
               textAlign: TextAlign.center,
             ),
             SizedBox(
@@ -78,7 +78,7 @@ class SendOTPScreen extends StatelessWidget {
 
 class OTPInput extends StatelessWidget {
   const OTPInput({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

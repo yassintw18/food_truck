@@ -1,4 +1,3 @@
-import 'package:clip_shadow/clip_shadow.dart';
 import 'package:flutter/material.dart';
 import 'package:monkey_app_demo/const/colors.dart';
 import 'package:monkey_app_demo/utils/helper.dart';
@@ -35,8 +34,8 @@ class IndividualItem extends StatelessWidget {
                               end: Alignment.bottomCenter,
                               stops: [0.0, 0.4],
                               colors: [
-                                Colors.black.withOpacity(0.9),
-                                Colors.black.withOpacity(0.0),
+                                Colors.black.withAlpha(230),
+                                Colors.black.withAlpha(0),
                               ],
                             ),
                           ),
@@ -101,8 +100,9 @@ class IndividualItem extends StatelessWidget {
                                               horizontal: 20),
                                           child: Text(
                                             "Tandoori Chicken Pizza",
-                                            style: Helper.getTheme(context)
-                                                .headline5,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headlineSmall,
                                           ),
                                         ),
                                         Padding(
@@ -201,9 +201,10 @@ class IndividualItem extends StatelessWidget {
                                               horizontal: 20),
                                           child: Text(
                                             "Description",
-                                            style: Helper.getTheme(context)
-                                                .headline4
-                                                .copyWith(
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headlineMedium
+                                                ?.copyWith(
                                                   fontSize: 16,
                                                 ),
                                           ),
@@ -236,9 +237,10 @@ class IndividualItem extends StatelessWidget {
                                               horizontal: 20),
                                           child: Text(
                                             "Customize your Order",
-                                            style: Helper.getTheme(context)
-                                                .headline4
-                                                .copyWith(
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headlineMedium
+                                                ?.copyWith(
                                                   fontSize: 16,
                                                 ),
                                           ),
@@ -343,9 +345,10 @@ class IndividualItem extends StatelessWidget {
                                             children: [
                                               Text(
                                                 "Number of Portions",
-                                                style: Helper.getTheme(context)
-                                                    .headline4
-                                                    .copyWith(
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .headlineMedium
+                                                    ?.copyWith(
                                                       fontSize: 16,
                                                     ),
                                               ),
@@ -357,7 +360,7 @@ class IndividualItem extends StatelessWidget {
                                                     ElevatedButton(
                                                       style: ButtonStyle(
                                                           elevation:
-                                                              MaterialStateProperty
+                                                              WidgetStateProperty
                                                                   .all(5.0)),
                                                       onPressed: () {},
                                                       child: Text("-"),
@@ -397,7 +400,7 @@ class IndividualItem extends StatelessWidget {
                                                     ElevatedButton(
                                                       style: ButtonStyle(
                                                           elevation:
-                                                              MaterialStateProperty
+                                                              WidgetStateProperty
                                                                   .all(5.0)),
                                                       onPressed: () {},
                                                       child: Text("+"),
@@ -467,7 +470,7 @@ class IndividualItem extends StatelessWidget {
                                                         BoxShadow(
                                                           color: AppColor
                                                               .placeholder
-                                                              .withOpacity(0.3),
+                                                              .withAlpha(77),
                                                           offset: Offset(0, 5),
                                                           blurRadius: 5,
                                                         ),
@@ -537,7 +540,7 @@ class IndividualItem extends StatelessWidget {
                                                         BoxShadow(
                                                           color: AppColor
                                                               .placeholder
-                                                              .withOpacity(0.3),
+                                                              .withAlpha(77),
                                                           offset: Offset(0, 5),
                                                           blurRadius: 5,
                                                         ),
@@ -565,23 +568,27 @@ class IndividualItem extends StatelessWidget {
                                   ),
                                   child: Align(
                                     alignment: Alignment.topRight,
-                                    child: ClipShadow(
-                                      clipper: CustomTriangle(),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: AppColor.placeholder,
-                                          offset: Offset(0, 5),
-                                          blurRadius: 5,
-                                        ),
-                                      ],
-                                      child: Container(
-                                        width: 60,
-                                        height: 60,
-                                        color: Colors.white,
-                                        child: Image.asset(
-                                          Helper.getAssetName(
-                                            "fav_filled.png",
-                                            "virtual",
+                                    child: Container(
+                                      decoration: const BoxDecoration(
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: AppColor.placeholder,
+                                            offset: Offset(0, 5),
+                                            blurRadius: 5,
+                                          ),
+                                        ],
+                                      ),
+                                      child: ClipPath(
+                                        clipper: CustomTriangle(),
+                                        child: Container(
+                                          width: 60,
+                                          height: 60,
+                                          color: Colors.white,
+                                          child: Image.asset(
+                                            Helper.getAssetName(
+                                              "fav_filled.png",
+                                              "virtual",
+                                            ),
                                           ),
                                         ),
                                       ),

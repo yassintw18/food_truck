@@ -12,7 +12,7 @@ class IntroScreen extends StatefulWidget {
 
 class _IntroScreenState extends State<IntroScreen> {
   var _controller;
-  int count;
+  int count = 0;
   final List<Map<String, String>> _pages = [
     {
       "image": "vector1.png",
@@ -36,7 +36,6 @@ class _IntroScreenState extends State<IntroScreen> {
   @override
   void initState() {
     _controller = new PageController();
-    count = 0;
     super.initState();
   }
 
@@ -64,7 +63,7 @@ class _IntroScreenState extends State<IntroScreen> {
                     },
                     itemBuilder: (context, index) {
                       return Image.asset(Helper.getAssetName(
-                          _pages[index]["image"], "virtual"));
+                          _pages[index]["image"] ?? "", "virtual"));
                     },
                     itemCount: _pages.length,
                   ),
@@ -97,12 +96,12 @@ class _IntroScreenState extends State<IntroScreen> {
                 ),
                 Spacer(),
                 Text(
-                  _pages[count]["title"],
-                  style: Helper.getTheme(context).headline6,
+                  _pages[count]["title"] ?? "",
+                  style: Helper.getTheme(context).titleLarge,
                 ),
                 Spacer(),
                 Text(
-                  _pages[count]["desc"],
+                  _pages[count]["desc"] ?? "",
                   textAlign: TextAlign.center,
                 ),
                 Spacer(),

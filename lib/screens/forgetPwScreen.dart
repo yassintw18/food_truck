@@ -22,7 +22,7 @@ class ForgetPwScreen extends StatelessWidget {
               children: [
                 Text(
                   "Reset Password",
-                  style: Helper.getTheme(context).headline6,
+                  style: Helper.getTheme(context).titleLarge,
                 ),
                 Spacer(),
                 Text(

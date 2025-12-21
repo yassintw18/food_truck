@@ -28,7 +28,7 @@ class AboutScreen extends StatelessWidget {
                       Expanded(
                         child: Text(
                           "About Us",
-                          style: Helper.getTheme(context).headline5,
+                          style: Theme.of(context).textTheme.headlineSmall,
                         ),
                       ),
                       Image.asset(
@@ -71,7 +71,7 @@ class AboutScreen extends StatelessWidget {
 
 class AboutCard extends StatelessWidget {
   const AboutCard({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

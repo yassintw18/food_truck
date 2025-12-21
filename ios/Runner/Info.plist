@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+    <string>App需要藍牙權限以連接餐車出單機</string>
+    <key>NSBluetoothPeripheralUsageDescription</key>
+    <string>App需要藍牙權限以連接餐車出單機</string>
+    <key>UISupportedExternalAccessoryProtocols</key>
+    <array>
+        <string>com.dothantech.printer</string>
+    </array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

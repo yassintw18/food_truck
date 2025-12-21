@@ -30,7 +30,7 @@ class PaymentScreen extends StatelessWidget {
                       Expanded(
                         child: Text(
                           "Payment Details",
-                          style: Helper.getTheme(context).headline5,
+                          style: Theme.of(context).textTheme.headlineSmall,
                         ),
                       ),
                       Image.asset(
@@ -51,7 +51,7 @@ class PaymentScreen extends StatelessWidget {
                     children: [
                       Text(
                         "Customize your payment method",
-                        style: Helper.getTheme(context).headline3,
+                        style: Theme.of(context).textTheme.displaySmall,
                       )
                     ],
                   ),
@@ -71,7 +71,7 @@ class PaymentScreen extends StatelessWidget {
                     color: AppColor.placeholderBg,
                     boxShadow: [
                       BoxShadow(
-                        color: AppColor.placeholder.withOpacity(0.5),
+                        color: AppColor.placeholder.withAlpha(128),
                         offset: Offset(0, 20),
                         blurRadius: 20,
                         spreadRadius: 5,
@@ -118,15 +118,15 @@ class PaymentScreen extends StatelessWidget {
                             Text("2187"),
                             OutlinedButton(
                               style: ButtonStyle(
-                                  side: MaterialStateProperty.all(
+                                  side: WidgetStateProperty.all(
                                     BorderSide(
                                       color: AppColor.orange,
                                     ),
                                   ),
-                                  shape: MaterialStateProperty.all(
+                                  shape: WidgetStateProperty.all(
                                     StadiumBorder(),
                                   ),
-                                  foregroundColor: MaterialStateProperty.all(
+                                  foregroundColor: WidgetStateProperty.all(
                                       AppColor.orange)),
                               onPressed: () {},
                               child: Text("Delete Card"),
@@ -192,8 +192,9 @@ class PaymentScreen extends StatelessWidget {
                                         children: [
                                           Text(
                                             "Add Credit/Debit Card",
-                                            style: Helper.getTheme(context)
-                                                .headline3,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .displaySmall,
                                           )
                                         ],
                                       ),
@@ -203,7 +204,7 @@ class PaymentScreen extends StatelessWidget {
                                           horizontal: 20.0),
                                       child: Divider(
                                         color: AppColor.placeholder
-                                            .withOpacity(0.5),
+                                            .withAlpha(128),
                                         thickness: 1.5,
                                         height: 40,
                                       ),
@@ -286,7 +287,7 @@ class PaymentScreen extends StatelessWidget {
                                             value: false,
                                             onChanged: (_) {},
                                             thumbColor:
-                                                MaterialStateProperty.all(
+                                                WidgetStateProperty.all(
                                               AppColor.secondary,
                                             ),
                                           )
